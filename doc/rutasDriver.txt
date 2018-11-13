@@ -1,0 +1,51 @@
+    ┌────────────────────────────────────────────────────────┬──────────────────────────────────────┐
+    |                Old services SGM Driver                 |       New services SGM Driver        |
+    ├────────────────────────────────────────────────────────┼──────────────────────────────────────┤
+  1 | GET: /findAllPassengerPhones/{passengerId}             | DISUSE                               |
+ ───├────────────────────────────────────────────────────────┼──────────────────────────────────────┤
+  2 | PUT: /updateAddressPoint/{addressId}                   | PUT: /updateAddressPoint             |
+ ───├────────────────────────────────────────────────────────┼──────────────────────────────────────┤
+  3 | PUT: /updateServiceStatus/{serviceId}                  | DISUSE                               |
+ ───├────────────────────────────────────────────────────────┼──────────────────────────────────────┤
+  4 | GET: /auth                                             | POST: /auth                          |
+ ───├────────────────────────────────────────────────────────┼──────────────────────────────────────┤
+  5 | GET: /dashboard/{driverId}                             | GET: /counter                        |
+ ───├────────────────────────────────────────────────────────┼──────────────────────────────────────┤
+  6 | GET: /findAllDriverCancelIncidences                    | GET: /optIncidenceDriver             |
+ ───├────────────────────────────────────────────────────────┼──────────────────────────────────────┤
+  7 | GET: /findAllDriverIncidences                          | GET: /optIncidenceAgent              |
+ ───├────────────────────────────────────────────────────────┼──────────────────────────────────────┤
+  8 | PUT: /saveDriverIncidence/{incidence.tripId}           | POST: /agentIncidence                |
+ ───├────────────────────────────────────────────────────────┼──────────────────────────────────────┤
+  9 | PUT: /saveDriverCancelIncidence/{incidence.serviceId}  | POST: /driverIncidence               |
+ ───├────────────────────────────────────────────────────────┼──────────────────────────────────────┤
+ 10 | GET: /findAllServicesToday/{userId}                    | GET: /tolist                         |
+ ───├────────────────────────────────────────────────────────┼──────────────────────────────────────┤
+ 11 | GET: /findAllDetailServices/{serviceId}                | GET: /detail/{id}                    |
+ ───├────────────────────────────────────────────────────────┼──────────────────────────────────────┤
+ 12 | PUT: /updateRouteStatus/{serviceId}                    | DISUSE                               |
+ ───├────────────────────────────────────────────────────────┼──────────────────────────────────────┤
+ 13 | PUT: /updateServicesStatus/{serviceId}                 | DISUSE                               |
+ ───├────────────────────────────────────────────────────────┼──────────────────────────────────────┤
+ 14 | GET: /history/{driverId}/{start}/{end}                 | GET: /history?from=Fecha1&to=Fecha2  |
+ ───├────────────────────────────────────────────────────────┼──────────────────────────────────────┤
+ 15 | POST: /saveServiceTrackingEvent                        | POST: /saveTrakingEvent              |
+ ───├────────────────────────────────────────────────────────┼──────────────────────────────────────┤
+ 16 | POST: /saveTrackingEvents                              | POST: /saveTrakingEvents             |
+ ───├────────────────────────────────────────────────────────┼──────────────────────────────────────┤
+ 17 | GET: /findAllPassengerBoarding/{serviceId}             | NOT USED                             |
+ ───├────────────────────────────────────────────────────────┼──────────────────────────────────────┤
+ 18 | PUT: /updateServiceStatus/{tripId}                     | DISUSE                               |
+ ───└────────────────────────────────────────────────────────┴──────────────────────────────────────┘
+
+(2) /updateAddressPoint : 
+  Request:
+    { addressId: Number, lat: String, lng: String }, 
+  Response:
+    { update: Boolean } 
+(4) /auth 
+  Request:
+    { username: String, password: String }, 
+  Response:
+    { user: String, firstName: String, lastName: String, phone:[ phone1: String, phone2: String ], 
+      providerId: Number, providerName: String, providerTag: String, token: String }
